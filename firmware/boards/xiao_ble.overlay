@@ -1,0 +1,71 @@
+/ {
+    model = "Seeed XIAO BLE Sense";
+	compatible = "seeed,xiao-ble", "seeed,xiao-ble-sense";
+
+	leds {
+		compatible = "gpio-leds";
+		led1: led_1 {
+			gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+			label = "External LED";
+		};
+		led2: led_2 {
+			gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
+			label = "External LED";
+		};
+		led3: led_3 {
+			gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+			label = "External LED";
+		};
+		led4: led_4 {
+			gpios = <&gpio1 13 GPIO_ACTIVE_HIGH>;
+			label = "External LED";
+		};
+		led5: led_5 {
+			gpios = <&gpio1 15 GPIO_ACTIVE_HIGH>;
+			label = "External LED";
+		};
+    };
+
+    buttons {
+        compatible = "gpio-keys";
+        debounce-interval-ms = <250>;
+        button1: button_1 {
+            gpios = <&gpio0 3 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Push button switch 0";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+        button2: button_2 {
+            gpios = <&gpio0 29 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Push button switch 0";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+        button3: button_3 {
+            gpios = <&gpio0 5 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Push button switch 0";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+        button4: button_4 {
+            gpios = <&gpio1 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Push button switch 0";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+        button5: button_5 {
+            gpios = <&gpio1 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Push button switch 0";
+            zephyr,code = <INPUT_KEY_0>;
+        };
+    };
+
+    aliases {
+		button1 = &button1;
+		button2 = &button2;
+		button3 = &button3;
+		button4 = &button4;
+		button5 = &button5;
+        led1 = &led1;
+        led2 = &led2;
+        led3 = &led3;
+        led4 = &led4;
+        led5 = &led5;
+    };
+};
